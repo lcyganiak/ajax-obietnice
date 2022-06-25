@@ -45,11 +45,14 @@ const data = fetch('https://jsonplaceholder.typicode.com/posts')
 
 
 }
+function getInput() {
+    const input = document.querySelector("input[type='text'").value
+    console.log(input)
+}
 
 
-getPosts()
-
-
+const btn = document.getElementById('btn')
+btn.addEventListener('click',getInput )
 
 
 

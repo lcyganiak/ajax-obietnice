@@ -13,46 +13,63 @@ function getPosts() {
 // POST - 1. Zapisuje nowy rekord w API    2. pobiernia z API z parametrem  
 // PUT - Edytuje rekord w API. 
 // DELETE - kasuje rekord w APT
-const data = fetch('https://jsonplaceholder.typicode.com/posts')
-.then(res => res.json())  // {"imie": "Kasia"} = > {imie: "Kasia"} to robi .json()
-.then(res => {
-    console.log(res)
-    // miejsce gdzie możemy operować na danych poranych 
+    const data = fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res => res.json())  // {"imie": "Kasia"} = > {imie: "Kasia"} to robi .json()
+    .then(res => {
+        console.log(res)
+        // miejsce gdzie możemy operować na danych poranych 
 
-    res.forEach(element => {
-        console.log(element)
-        const app = document.getElementById('app')
-        const mainDiv = document.createElement('div')
-        const mainH2 = document.createElement('h2')
-        const mainParagraf = document.createElement('p')
-        mainH2.innerText = element.title
-        mainParagraf.innerText = element.body
+        res.forEach(element => {
+            console.log(element)
+            const app = document.getElementById('app')
+            const mainDiv = document.createElement('div')
+            const mainH2 = document.createElement('h2')
+            const mainParagraf = document.createElement('p')
+            mainH2.innerText = element.title
+            mainParagraf.innerText = element.body
 
-        mainDiv.appendChild(mainH2)
-        mainDiv.appendChild(mainParagraf)
+            mainDiv.appendChild(mainH2)
+            mainDiv.appendChild(mainParagraf)
 
-        app.appendChild(mainDiv)
+            app.appendChild(mainDiv)
 
-    });
-})
-
-
-
-
-
-
-
-
-
+        });
+    })
 }
+
 function getInput() {
     const input = document.querySelector("input[type='text'").value
     console.log(input)
+    return input
 }
 
 
+function getPost() {
+        const inputVal = getInput() 
+        const data = fetch(`https://jsonplaceholder.typicode.com/posts/${inputVal}`)
+        .then(res => res.json())  // {"imie": "Kasia"} = > {imie: "Kasia"} to robi .json()
+        .then(res => {
+            console.log(res)
+            // miejsce gdzie możemy operować na danych poranych 
+    
+                const app = document.getElementById('app')
+                const mainDiv = document.createElement('div')
+                const mainH2 = document.createElement('h2')
+                const mainParagraf = document.createElement('p')
+                mainH2.innerText = res.title
+                mainParagraf.innerText = res.body
+    
+                mainDiv.appendChild(mainH2)
+                mainDiv.appendChild(mainParagraf)
+    
+                app.appendChild(mainDiv)
+    
+        })
+    }
+
+
 const btn = document.getElementById('btn')
-btn.addEventListener('click',getInput )
+btn.addEventListener('click',getPost )
 
 
 

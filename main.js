@@ -48,3 +48,15 @@ const data = fetch('https://jsonplaceholder.typicode.com/posts')
 
 
 getPosts()
+
+
+
+
+
+// kody błedu 
+//https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP
+//
+//
+//
+//
+//

@@ -6,7 +6,6 @@
 // dzwonie do dziewczyny zaprości na randkę => Obietnicę => Obietnice pozytwynie => randka
 // 
 
-
 function getPosts() {
 // czasowniki do zapytań 
 // GET - pobiernia z API - nie posiada parametrów 
